@@ -1,27 +1,26 @@
-import React, { Component } from 'react';
-// import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import { FilterLabel, FilterInput } from './Filter.styled';
 
-export class Filter extends Component {
-  state = {
-    inputValue: '',
-  };
+// export const Filter = ({ inputValue, changeFilterList }) => {
+//   <FilterLabel>
+//     Find contacts by name
+//     <FilterInput
+//       type="text"
+//       name="filter"
+//       value={inputValue}
+//       onChange={changeFilterList}
+//     />
+//   </FilterLabel>;
+// };
 
-  handleChange = evt => {
-    this.setState({ inputValue: evt.target.value });
-  };
+export const Filter = ({ value, onChange }) => (
+  <FilterLabel>
+    Find contacts by Name
+    <FilterInput type="text" name="filter" value={value} onChange={onChange} />
+  </FilterLabel>
+);
 
-  render() {
-    const { inputValue } = this.state;
-    return (
-      <FilterLabel>
-        Find contacts by name
-        <FilterInput
-          type="text"
-          value={inputValue}
-          onChange={this.handleChange}
-        />
-      </FilterLabel>
-    );
-  }
-}
+Filter.propTypes = {
+  value: propTypes.string.isRequired,
+  onChange: propTypes.func.isRequired,
+};

@@ -26,13 +26,17 @@ export class App extends Component {
   };
 
   getFilteredContacts = () => {
-    const filterContactsList = this.state.contacts.filter(contact => {
-      return contact.name
-        .toLowerCase()
-        .includes(this.state.filter.toLowerCase());
+    const { contacts, filter } = this.state;
+    const filterContactsList = contacts.filter(contact => {
+      return contact.name.toLowerCase().includes(filter.toLowerCase());
     });
 
     return filterContactsList;
+  };
+
+  filterList = evt => {
+    const { name, value } = evt.target;
+    this.setState({ [name]: value });
   };
 
   render() {
@@ -53,7 +57,7 @@ export class App extends Component {
           <ContactForm onSubmit={this.formSubmit} />
         </Section>
         <Section title="Contacts">
-          <Filter />
+          <Filter value={this.state.filter} onChange={this.filterList} />
           <ContactList contacts={this.getFilteredContacts()} />
         </Section>
       </div>
