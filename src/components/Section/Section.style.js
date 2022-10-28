@@ -5,7 +5,7 @@ export const SectionContainer = styled.section`
   /* width: 400px; */
   /* height: auto;
   border-radius: 10px; */
-  /* padding: 20px; */
+  padding: 20px;
   text-align: center;
 `;
 export const Title = styled.h2`

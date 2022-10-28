@@ -19,10 +19,23 @@ export class App extends Component {
 
   formSubmit = ({ name, number }) => {
     const contact = { id: nanoid(), name, number };
-    console.log(contact);
-    this.setState(prevState => ({
-      contacts: [contact, ...prevState.contacts],
-    }));
+    console.log(name);
+    if (this.state.contacts.some(e => e.name === name)) {
+      // this.setState(prevState => ({
+      //  return {contacts: [contact, ...prevState.contacts],}
+      // }));
+      return alert(`${name} is already in contacts!`);
+    } else {
+      this.setState(({ contacts }) => {
+        return {
+          contacts: [contact, ...contacts],
+        };
+      });
+    }
+
+    // this.setState(prevState => ({
+    //   contacts: [contact, ...prevState.contacts],
+    // }));
   };
 
   getFilteredContacts = () => {
@@ -30,7 +43,6 @@ export class App extends Component {
     const filterContactsList = contacts.filter(contact => {
       return contact.name.toLowerCase().includes(filter.toLowerCase());
     });
-
     return filterContactsList;
   };
 
@@ -38,7 +50,11 @@ export class App extends Component {
     const { name, value } = evt.target;
     this.setState({ [name]: value });
   };
-
+  deleteContact = contactId => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+    }));
+  };
   render() {
     return (
       <div
@@ -58,7 +74,10 @@ export class App extends Component {
         </Section>
         <Section title="Contacts">
           <Filter value={this.state.filter} onChange={this.filterList} />
-          <ContactList contacts={this.getFilteredContacts()} />
+          <ContactList
+            contacts={this.getFilteredContacts()}
+            deleteContact={this.deleteContact}
+          />
         </Section>
       </div>
     );

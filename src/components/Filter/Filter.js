@@ -16,7 +16,13 @@ import { FilterLabel, FilterInput } from './Filter.styled';
 export const Filter = ({ value, onChange }) => (
   <FilterLabel>
     Find contacts by Name
-    <FilterInput type="text" name="filter" value={value} onChange={onChange} />
+    <FilterInput
+      type="text"
+      name="filter"
+      placeholder="Search contact"
+      value={value}
+      onChange={onChange}
+    />
   </FilterLabel>
 );
 
