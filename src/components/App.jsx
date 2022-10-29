@@ -61,6 +61,13 @@ export class App extends Component {
           gap: 20,
         }}
       >
+        <h1
+          style={{
+            display: 'none',
+          }}
+        >
+          Phonebook
+        </h1>
         <Section title="Phonebook">
           <ContactForm onSubmit={this.formSubmit} />
         </Section>
