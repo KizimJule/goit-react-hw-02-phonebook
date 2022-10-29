@@ -5,11 +5,14 @@ import {
   ContactListLi,
   ButtonDelete,
 } from './ContactList.styled';
+import { FcPhoneAndroid } from 'react-icons/fc';
+// import AddIcCallIcon from '@material-ui/icons/AddIcCall';
 
 export const ContactList = ({ contacts, deleteContact }) => (
   <ContactListUl>
     {contacts.map((contact, id) => (
       <ContactListLi key={id}>
+        <FcPhoneAndroid />
         {contact.name}: {contact.number}
         <ButtonDelete type="button" onClick={() => deleteContact(contact.id)}>
           Delete
@@ -19,6 +22,7 @@ export const ContactList = ({ contacts, deleteContact }) => (
   </ContactListUl>
 );
 ContactList.propTypes = {
+  deleteContact: propTypes.func.isRequired,
   contacts: propTypes.arrayOf(
     propTypes.exact({
       id: propTypes.string.isRequired,

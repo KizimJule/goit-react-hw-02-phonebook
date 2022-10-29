@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
+  margin: 0 auto;
   border: 1px solid black;
-  width: 400px;
+  width: 320px;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -18,10 +19,11 @@ export const Label = styled.label`
   font-weight: 600;
 `;
 export const Input = styled.input`
-  width: 200px;
-  height: 22px;
+  width: 300px;
+  height: 24px;
   outline: transparent;
   padding: 0 8px;
+  border: 1px solid #000;
   &:hover,
   &:focus {
     border: 2px solid #92a8d1;

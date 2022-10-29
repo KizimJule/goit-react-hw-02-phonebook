@@ -19,11 +19,7 @@ export class App extends Component {
 
   formSubmit = ({ name, number }) => {
     const contact = { id: nanoid(), name, number };
-    console.log(name);
     if (this.state.contacts.some(e => e.name === name)) {
-      // this.setState(prevState => ({
-      //  return {contacts: [contact, ...prevState.contacts],}
-      // }));
       return alert(`${name} is already in contacts!`);
     } else {
       this.setState(({ contacts }) => {
@@ -32,10 +28,6 @@ export class App extends Component {
         };
       });
     }
-
-    // this.setState(prevState => ({
-    //   contacts: [contact, ...prevState.contacts],
-    // }));
   };
 
   getFilteredContacts = () => {

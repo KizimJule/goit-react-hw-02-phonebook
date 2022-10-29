@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 
 export const SectionContainer = styled.section`
-  /* background: #80ced6; */
-  /* width: 400px; */
-  /* height: auto;
-  border-radius: 10px; */
+  width: 1200px;
   padding: 20px;
   text-align: center;
 `;

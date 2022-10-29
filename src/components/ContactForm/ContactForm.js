@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 
 import { Form, Label, Input, ButtonForm } from './ContactForm.styled';
 
@@ -14,7 +15,6 @@ export class ContactForm extends Component {
 
   handleInputChange = evt => {
     const { name, value } = evt.currentTarget;
-    // console.log(name, value);
     this.setState({ [name]: value });
   };
 
@@ -64,3 +64,9 @@ export class ContactForm extends Component {
     );
   }
 }
+ContactForm.propTypes = {
+  name: PropTypes.string,
+  value: PropTypes.string,
+  handleSubmit: PropTypes.func,
+  handleInputChange: PropTypes.func,
+};
