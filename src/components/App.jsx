@@ -21,13 +21,9 @@ export class App extends Component {
     const contact = { id: nanoid(), name, number };
     if (this.state.contacts.some(e => e.name === name)) {
       return alert(`${name} is already in contacts!`);
-    } else {
-      this.setState(({ contacts }) => {
-        return {
-          contacts: [contact, ...contacts],
-        };
-      });
     }
+
+    this.setState(({ contacts }) => ({ contacts: [contact, ...contacts] }));
   };
 
   getFilteredContacts = () => {
